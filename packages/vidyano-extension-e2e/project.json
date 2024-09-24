@@ -1,0 +1,17 @@
+{
+  "name": "vidyano-extension-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "implicitDependencies": ["vidyano-extension"],
+  "targets": {
+    "e2e": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{e2eProjectRoot}"],
+      "options": {
+        "jestConfig": "packages/vidyano-extension-e2e/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "dependsOn": ["vidyano-extension:build"]
+    }
+  }
+}

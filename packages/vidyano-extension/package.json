@@ -1,0 +1,22 @@
+{
+  "name": "@mintplayer/vidyano-extension",
+  "displayName": "vidyano-extension",
+  "description": "Automatically build vidyano applications",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.93.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./main.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "mintplayer-vidyano-extension.helloWorld",
+        "title": "Hello World"
+      }
+    ]
+  }
+}

@@ -1,6 +1,29 @@
 {
   "extends": "nx/presets/npm.json",
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
+  "defaultProject": "vidyano-extension",
   "defaultBase": "master",
-  "nxCloudId": "66f10190927c3b4c91f46107"
+  "nxCloudId": "66f10190927c3b4c91f46107",
+  "targetDefaults": {
+    "@nx/esbuild:esbuild": {
+      "cache": true,
+      "dependsOn": ["^build"],
+      "inputs": ["default", "^default"]
+    }
+  },
+  "plugins": [
+    {
+      "plugin": "@nx/eslint/plugin",
+      "options": {
+        "targetName": "lint"
+      }
+    },
+    {
+      "plugin": "@nx/jest/plugin",
+      "options": {
+        "targetName": "test"
+      },
+      "exclude": ["packages/vidyano-extension-e2e/**/*"]
+    }
+  ]
 }

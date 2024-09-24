@@ -1,0 +1,61 @@
+{
+  "name": "vidyano-extension",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/vidyano-extension/src",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/esbuild:esbuild",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "platform": "node",
+        "outputPath": "dist/packages/vidyano-extension",
+        "format": ["cjs"],
+        "bundle": false,
+        "main": "packages/vidyano-extension/src/main.ts",
+        "tsConfig": "packages/vidyano-extension/tsconfig.app.json",
+        "assets": [
+          "packages/vidyano-extension/src/assets",
+          "packages/vidyano-extension/package.json"
+        ],
+        "generatePackageJson": true,
+        "esbuildOptions": {
+          "sourcemap": true,
+          "outExtension": {
+            ".js": ".js"
+          }
+        }
+      },
+      "configurations": {
+        "development": {},
+        "production": {
+          "esbuildOptions": {
+            "sourcemap": false,
+            "outExtension": {
+              ".js": ".js"
+            }
+          }
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "dependsOn": ["build"],
+      "options": {
+        "buildTarget": "vidyano-extension:build",
+        "runBuildTargetDependencies": false
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "vidyano-extension:build:development"
+        },
+        "production": {
+          "buildTarget": "vidyano-extension:build:production"
+        }
+      }
+    }
+  }
+}
