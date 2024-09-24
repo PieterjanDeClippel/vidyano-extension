@@ -7,12 +7,12 @@
             "request": "launch",
             "runtimeExecutable": "${execPath}",
             "args": [
-                "--extensionDevelopmentPath=${workspaceFolder}/dist/packages/vidyano-extension"
+                "--extensionDevelopmentPath=${workspaceFolder}"
             ],
             "trace": false,
             "internalConsoleOptions": "openOnFirstSessionStart",
             "outFiles": [
-                "${workspaceFolder}/dist/packages/vidyano-extension"
+                "${workspaceFolder}/dist/packages/vidyano-extension/**/*.js"
             ],
             "preLaunchTask": "${defaultBuildTask}"
         }
